@@ -31,7 +31,6 @@ jobs:
     - name: Verify Required Tools
       run: |
         automake --version
-        libtool --version
         pkg-config --version
         make --version
         perl --version
