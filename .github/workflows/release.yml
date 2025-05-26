@@ -27,6 +27,10 @@ jobs:
         brew install pkg-config
         brew install make
 
+    - name: Verify Make Version
+      run: |
+        make --version
+
     - name: Build and Archive
       run: |
         ./autogen.sh
@@ -34,3 +38,4 @@ jobs:
       shell: /bin/bash -e {0}
       env:
         MD_APPLE_SDK_ROOT: /Applications/Xcode_16.2.app
+        PATH: /usr/local/opt/make/libexec/gnubin:$PATH  # Ensure the new make is used
