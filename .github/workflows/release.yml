@@ -28,9 +28,13 @@ jobs:
         brew install make
         brew install perl
 
-    - name: Verify Make Version
+    - name: Verify Required Tools
       run: |
+        automake --version
+        libtool --version
+        pkg-config --version
         make --version
+        perl --version
 
     - name: Build and Archive
       run: |
