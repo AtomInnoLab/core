@@ -25,7 +25,7 @@ jobs:
         brew install automake
         brew install libtool
         brew install make
-        brew install perl
+        brew reinstall perl
         brew install ant
 
     - name: Verify Required Tools
@@ -42,7 +42,7 @@ jobs:
       shell: /bin/bash -e {0}
       env:
         MD_APPLE_SDK_ROOT: /Applications/Xcode_16.2.app
-        PATH: /usr/local/opt/make/libexec/gnubin:$PATH  # Ensure the new make is used
+        PATH: /usr/local/bin:/usr/local/opt/make/libexec/gnubin:$PATH  # Ensure the new perl and make are used
     
     - name: Upload Artifact to Release
       id: upload-artifact
