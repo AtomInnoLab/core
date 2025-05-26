@@ -1,0 +1,25 @@
+name: Publish Release
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  publish-artifact:
+    runs-on: macos-latest
+    if: github.event.release.draft == false
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Xcode
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: 'latest-stable'
+
+    - name: Build and Archive
+      run: |
+        ./autogen.sh
+        ls -alR
