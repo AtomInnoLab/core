@@ -45,12 +45,12 @@ jobs:
         PATH: /usr/local/opt/make/libexec/gnubin:$PATH  # Ensure the new make is used
     
     - name: Upload Artifact to Release
-        id: upload-artifact
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: instdir/LibreOfficeDev.app  # Path to the artifact
-          asset_name: LibreOfficeDev-macos15-arm64.app  # Name of the artifact in the release
-          asset_content_type: application/octet-stream 
+      id: upload-artifact
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: instdir/LibreOfficeDev.app  # Path to the artifact
+        asset_name: LibreOfficeDev-macos15-arm64.app  # Name of the artifact in the release
+        asset_content_type: application/octet-stream  # Content type for .app files
