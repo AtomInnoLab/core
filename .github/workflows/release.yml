@@ -26,6 +26,7 @@ jobs:
         brew install libtool
         brew install pkg-config
         brew install make
+        brew install perl
 
     - name: Verify Make Version
       run: |
