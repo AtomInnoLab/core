@@ -19,7 +19,17 @@ jobs:
       with:
         xcode-version: 'latest-stable'
 
+    - name: Install Required Tools
+      run: |
+        brew update
+        brew install automake
+        brew install libtool
+        brew install pkg-config
+
     - name: Build and Archive
       run: |
         ./autogen.sh
         ls -alR
+      shell: /bin/bash -e {0}
+      env:
+        MD_APPLE_SDK_ROOT: /Applications/Xcode_16.2.app
